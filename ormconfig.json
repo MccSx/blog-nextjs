@@ -5,9 +5,9 @@
   "username": "blog",
   "password": "",
   "database": "blog_development",
-  "synchronize": true,
+  "synchronize": false,
   "logging": false,
-  "entities": ["src/entity/**/*.ts"],
+  "entities": ["dist/entity/**/*.js"],
   "migrations": ["src/migration/**/*.ts"],
   "subscribers": ["src/subscriber/**/*.ts"],
   "cli": {

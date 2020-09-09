@@ -5,6 +5,7 @@ import { User } from "./entity/User";
 createConnection()
   .then(async connection => {
     console.log(connection);
+    connection.close();
 
     // console.log("Inserting a new user into the database...");
     // const user = new User();
