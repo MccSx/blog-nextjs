@@ -3,10 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev & babel ./src --out-dir dist --extensions .ts,.tsx",
     "build": "next build",
     "start": "next start",
-    "typeorm:build": "babel ./src --out-dir dist --extensions .ts,.tsx",
     "migration:run": "typeorm migration:run",
     "migration:revert": "typeorm migration:revert"
   },
