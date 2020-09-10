@@ -1,17 +1,17 @@
 import { Post } from "./entity/Post";
 import "reflect-metadata";
 import { createConnection } from "typeorm";
-// import { User } from "./entity/User";
 
 createConnection()
   .then(async connection => {
     const posts = await connection.manager.find(Post);
-    const p = new Post();
-    p.title = "post_1";
-    p.content = "我的第一篇博客";
-    await connection.manager.save(p);
-    const posts2 = await connection.manager.find(Post);
-    console.log(posts2);
+    if (posts.length === 0) {
+      await connection.manager.save(
+        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(n => {
+          return new Post({ title: `Post_${n}`, content: `我的第${n}篇博客` });
+        })
+      );
+    }
     connection.close();
   })
   .catch(error => console.log(error));
