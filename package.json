@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev & babel ./src --out-dir dist --extensions .ts,.tsx",
+    "dev": "concurrently \"next dev\" \"babel ./src --out-dir dist --extensions .ts,.tsx\"",
     "build": "next build",
     "start": "next start",
     "migration:run": "typeorm migration:run",
@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@babel/cli": "^7.11.6",
+    "concurrently": "^5.3.0",
     "gray-matter": "^4.0.2",
     "marked": "^1.1.1",
     "next": "9.5.3",
